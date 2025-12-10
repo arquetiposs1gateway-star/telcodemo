@@ -404,22 +404,26 @@
     <!-- S1 GATEWAY INTEGRATION ZONE -->
     <!-- ============================================ -->
     <script>
-        // Aquí puedes añadir la lógica para tu "Clic para WhatsApp" o CAPI
-            const ctaButtons = document.querySelectorAll('.btn-cta');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    // Previene el comportamiento por defecto de los enlaces
-                    event.preventDefault(); 
-                    
-                    const planSeleccionado = this.closest('.promocion-card').querySelector('h3').textContent;
-                    console.log('El usuario hizo clic en el botón de:', planSeleccionado);
-                    
-                    // Aquí podrías redirigir al usuario a WhatsApp o enviar un evento a tu servidor.
-                    // Por ejemplo: window.location.href = 'https://wa.me/numerodetelefono?text=Hola!%20Estoy%20interesado%20en%20el%20plan...';
-                });
+    // Aquí puedes añadir la lógica para tu "Clic para WhatsApp" o CAPI
+    document.addEventListener("DOMContentLoaded", function () {
+        const ctaButtons = document.querySelectorAll('.btn-cta');
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                
+                const planSeleccionado = this.closest('.promocion-card').querySelector('h3').textContent;
+                console.log('El usuario hizo clic en el botón de:', planSeleccionado);
+                
+                // Aquí podrías redirigir al usuario a WhatsApp o enviar un evento a tu servidor.
+                // Ejemplo:
+                // window.location.href = 'https://wa.me/525500000000?text=Hola!%20Estoy%20interesado%20en%20el%20plan%20' + encodeURIComponent(planSeleccionado);
             });
         });
-    <script type='text/javascript' src='https://fbdemo.s1gateway.com/offers/api/public//script?cpg_id=27565'></script>
+    });
+</script>
+
+<!-- Script externo -->
+<script type="text/javascript" src="https://fbdemo.s1gateway.com/offers/api/public/script?cpg_id=27565"></script>
 </body>
 </html>
 /fbid:1234565/index.html
